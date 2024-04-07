@@ -7,8 +7,7 @@ Na podstawie badań w grupie 10 użytkowników wewnątrz wrocławskiej korporacj
 - Update: 5% 
 - Delete: 5%
 
-Dla serverless należy ocenić konieczną ilość pamięci dla funkcji Lamdowych, żeby były one efektywne, a następnie zmierzyć czas na podstawie wywołań, który potrzebują na  
-Średnia wielkość fetcha - data transfer out
+Dla serverless należy ocenić konieczną ilość pamięci dla funkcji Lamdowych, żeby były one efektywne, a następnie zmierzyć czas na podstawie wywołań, który potrzebują na wykonanie fetcha.
 https://github.com/epsagon/lambda-memory-performance-benchmark
 
 <!-- Original memory size: 128
@@ -145,3 +144,7 @@ query-string:
 | --- | --- | --- | --- |
 | 2024-04-06 13:25:00.000 | 9.6585 | 84.63 | 7.5 |
 ---
+
+Fetch size (transfer out) - 27Bytes per operation / request HEADERS
+
+locust --headless --users 10 --spawn-rate 1 -H http://pj-mgr-lb-1863991976.eu-north-1.elb.amazonaws.com --json > benchmark.json
