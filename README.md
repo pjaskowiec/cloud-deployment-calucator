@@ -1,9 +1,10 @@
 # cloud-deployment-calucator
 
 Na podstawie badań w grupie 10 użytkowników wewnątrz wrocławskiej korporacji, średni rozkład operacji typu CRUD wykonywanych podczas obsługi aplikacji prezentował się tak:
+- Read: 100% (każdy odwiedzający musi wykonań operację)
+
 - Create: 5%
 - Search: 15%
-- Read: 70%
 - Update: 5% 
 - Delete: 5%
 
@@ -135,7 +136,7 @@ log-group-names: /aws/lambda/pj-mgr-student
 start-time: -3600s    
 end-time: 0s    
 query-string:
-  ```
+  ``u
       filter @type = "REPORT"
 | stats avg(@duration), max(@duration), min(@duration) by bin(25m)
   ```
